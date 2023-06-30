@@ -241,7 +241,7 @@ impl BitSet {
         }
         for (x, y) in self
             .bit_vec
-            .as_mut_raw_slice()
+            .as_raw_mut_slice()
             .iter_mut()
             .zip(other.as_slice().iter())
         {
@@ -263,7 +263,7 @@ impl BitSet {
     pub fn and(&mut self, other: &BitSet) {
         for (x, y) in self
             .bit_vec
-            .as_mut_raw_slice()
+            .as_raw_mut_slice()
             .iter_mut()
             .zip(other.as_slice().iter())
         {
@@ -276,7 +276,7 @@ impl BitSet {
     pub fn and_not(&mut self, other: &BitSet) {
         for (x, y) in self
             .bit_vec
-            .as_mut_raw_slice()
+            .as_raw_mut_slice()
             .iter_mut()
             .zip(other.as_slice().iter())
         {
@@ -288,7 +288,7 @@ impl BitSet {
     #[inline]
     pub fn not(&mut self) {
         self.bit_vec
-            .as_mut_raw_slice()
+            .as_raw_mut_slice()
             .iter_mut()
             .for_each(|x| *x = !*x);
         self.cardinality = self.bit_vec.count_ones();
@@ -297,7 +297,7 @@ impl BitSet {
     #[inline]
     pub fn unset_all(&mut self) {
         self.bit_vec
-            .as_mut_raw_slice()
+            .as_raw_mut_slice()
             .iter_mut()
             .for_each(|x| *x = 0);
         self.cardinality = 0;
@@ -306,7 +306,7 @@ impl BitSet {
     #[inline]
     pub fn set_all(&mut self) {
         self.bit_vec
-            .as_mut_raw_slice()
+            .as_raw_mut_slice()
             .iter_mut()
             .for_each(|x| *x = std::usize::MAX);
         self.cardinality = self.bit_vec.len();

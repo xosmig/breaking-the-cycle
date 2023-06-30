@@ -130,26 +130,26 @@ where
         };
     }
 
-    // We try to switch to a smaller graph representation; the compiler will remove all branches
-    // to representations larger than the current one ... hopefully ;)
-    return_if_some!(graph.try_compact(|g: &Graph8| branch_and_bound_impl(
-        g,
-        lower_bound_incl,
-        upper_bound_excl,
-        stats
-    )));
-    return_if_some!(graph.try_compact(|g: &Graph16| branch_and_bound_impl(
-        g,
-        lower_bound_incl,
-        upper_bound_excl,
-        stats
-    )));
-    return_if_some!(graph.try_compact(|g: &Graph32| branch_and_bound_impl(
-        g,
-        lower_bound_incl,
-        upper_bound_excl,
-        stats
-    )));
+    // // We try to switch to a smaller graph representation; the compiler will remove all branches
+    // // to representations larger than the current one ... hopefully ;)
+    // return_if_some!(graph.try_compact(|g: &Graph8| branch_and_bound_impl(
+    //     g,
+    //     lower_bound_incl,
+    //     upper_bound_excl,
+    //     stats
+    // )));
+    // return_if_some!(graph.try_compact(|g: &Graph16| branch_and_bound_impl(
+    //     g,
+    //     lower_bound_incl,
+    //     upper_bound_excl,
+    //     stats
+    // )));
+    // return_if_some!(graph.try_compact(|g: &Graph32| branch_and_bound_impl(
+    //     g,
+    //     lower_bound_incl,
+    //     upper_bound_excl,
+    //     stats
+    // )));
 
     // Now to the actual branching. In general there are two options
     // - branch1: Delete node 0
